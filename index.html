@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Generador de contraseñas seguras para la materia de Seguridad Informática." />
+  <title>Generador de Contraseñas Seguras</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="card" aria-labelledby="titulo-principal">
+      <div class="badge">Seguridad Informática</div>
+      <h1 id="titulo-principal">Generador de Contraseñas Seguras</h1>
+      <p class="subtitle">Genera una contraseña robusta directamente en tu navegador. No se almacena ni se envía a ningún servidor.</p>
+
+      <div class="password-box">
+        <label class="sr-only" for="password">Contraseña generada</label>
+        <input id="password" type="password" readonly autocomplete="off" spellcheck="false" />
+        <button id="togglePassword" class="icon-btn" type="button" aria-label="Mostrar contraseña">Mostrar</button>
+      </div>
+
+      <div class="actions">
+        <button id="generateBtn" class="primary-btn" type="button">Generar contraseña</button>
+        <button id="copyBtn" class="secondary-btn" type="button">Copiar</button>
+      </div>
+
+      <div class="control-group">
+        <div class="control-heading">
+          <label for="lengthRange">Longitud</label>
+          <strong><span id="lengthValue">16</span> caracteres</strong>
+        </div>
+        <input id="lengthRange" type="range" min="12" max="32" value="16" />
+      </div>
+
+      <fieldset class="options">
+        <legend>Tipos de caracteres</legend>
+        <label><input id="lowercase" type="checkbox" checked /> Minúsculas</label>
+        <label><input id="uppercase" type="checkbox" checked /> Mayúsculas</label>
+        <label><input id="numbers" type="checkbox" checked /> Números</label>
+        <label><input id="symbols" type="checkbox" checked /> Símbolos</label>
+      </fieldset>
+
+      <section class="strength-panel" aria-live="polite">
+        <div class="strength-topline">
+          <span>Fortaleza</span>
+          <strong id="strengthLabel">Muy fuerte</strong>
+        </div>
+        <div class="strength-track" aria-hidden="true">
+          <div id="strengthBar" class="strength-bar"></div>
+        </div>
+      </section>
+
+      <section class="info-panel">
+        <h2>¿Por qué es segura?</h2>
+        <ul id="reasonsList"></ul>
+      </section>
+
+      <section class="info-panel compact">
+        <h2>Recomendaciones</h2>
+        <ul>
+          <li>No reutilices la misma contraseña en varias cuentas.</li>
+          <li>Evita nombres, fechas importantes e información personal.</li>
+          <li>Usa un gestor de contraseñas cuando sea posible.</li>
+          <li>Activa la autenticación de dos factores (2FA).</li>
+        </ul>
+      </section>
+
+      <p id="statusMessage" class="status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
